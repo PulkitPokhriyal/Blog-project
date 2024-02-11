@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/main.css">
+    <title>my blogs</title>
+</head>
+<body>
+    <section title="header">
+        <%- include('partials/header.ejs') %>
+       </section>
+       <section title="content">
+        <div class="content-wrapper">
+        <h1 class="myblog">My Blogs</h1>
+        <form action="/create" method="post">
+            <button type="submit" class="btn btn-outline-success" style="margin-left:1.3vw">New Blog</button>
+        </form>
+        <ul>
+            <% for (let i = 0; i < newBlog.length; i++) { %>
+                <div class="blog-title"><li ><%= newBlog[i].title %></li></div>
+                <div class="blog-content"><li style="font-size: 2vw; list-style:none; padding-left: 5px;" ><%= newBlog[i].content %>
+               </li></div>
+               <div class="btns">
+                <form method="POST" action="/myblogs/<%= newBlog[i].id %>?_method=PATCH">
+                <button type="submit"  class="btn btn-outline-info" >Edit</button></form>
+                <form method="POST" action="/myblogs/<%= newBlog[i].id %>?_method=DELETE">
+                <button type="submit" class="btn btn-outline-danger">Delete</button>
+            </form></div>
+            
+                  
+            <% } %>
+        </ul>
+    
+        </div>
+        <script>
+            window.onload = function () {
+                if (window.history.replaceState) {
+                    window.history.replaceState(null, null, window.location.href);
+                }
+            }
+        </script>
+       </section>
+       <section title="footer"></section>
+       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>

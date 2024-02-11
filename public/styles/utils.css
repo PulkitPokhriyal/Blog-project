@@ -1,0 +1,20 @@
+body{
+    background-image: url(../images/jess-bailey-q10VITrVYUM-unsplash.jpg);
+
+    background-repeat:no-repeat;
+    background-size: 100vw;
+}
+
+@media (max-width: 994px) {
+    body {
+        background-image: url(../images/brandi-redd-aJTiW00qqtI-unsplash.jpg);
+        background-size: cover;
+    }
+  }
+
+  @media (max-width: 520px) {
+    body {
+        background-image: url(../images/brandi-redd-aJTiW00qqtI-unsplash.jpg);
+        background-size: 200vw;
+    }
+  }

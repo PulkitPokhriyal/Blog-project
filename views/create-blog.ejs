@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="/styles/utils.css">
+    <title>create-blog</title>
+</head>
+<body>
+    <section title="header">
+        <%- include('partials/header.ejs') %>
+       </section>
+    <section title="content">
+      <div id="container">
+        <% if (locals.blog) { %>
+            <form id="editForm" method="post" action="/myblogs/<%=blog.id%>?_method=PATCH">
+                <label for="title" class="blog">Title:</label>
+                <input type="text" class="blog title" value="<%=blog.title %>" name="title" required>
+                <label for="Content" class="blog">Content:</label>
+                <textarea type="text" class="blog content" name="content" required><%=blog.content %></textarea>
+                <div class="create-btn">
+               <button class="btn btn-outline-info" type="submit" onclick="updatePost()">Update Post</button>
+               <script>
+                function updatePost() {
+    alert("Post updated!");
+
+    fetch(document.getElementById('editForm').action, {
+        method: 'PATCH',
+        body: new FormData(document.getElementById('editForm')),
+    }).then(function (response) {
+        if (response.ok) {
+            // Redirect to the myblogs page
+            window.location.href = "/myblogs";
+        } else {
+            console.error('Form submission failed');
+        }
+    });
+}
+          </script>
+            </div>
+              </form>
+             
+        <% } else {%>
+            <form action="/myblogs" method="POST" >
+                <label for="title" class="blog">Title:</label>
+                <input type="text" class="blog title" name="title" required>
+                <label for="Content" class="blog">Content:</label>
+                <textarea type="text" class="blog content" name="content" required></textarea>
+                <div class="create-btn">
+                <button type="submit" class="btn btn-outline-info">Post</button> 
+            </form>
+            <% } %>
+        </div>
+    </section>
+    <section title="footer"></section>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>

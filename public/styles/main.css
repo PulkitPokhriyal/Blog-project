@@ -1,0 +1,125 @@
+
+.header{
+    padding-left: 10px;
+    background-color: bisque;
+    background-image: none;
+}
+.header a {
+    color: black;
+    font-size: 3vw;
+    text-decoration: none;
+    font-family:'Times New Roman', Times, serif;
+    background-image: none;
+}
+.header a:hover{
+    color: blue;
+}
+.quote{
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+    padding-top: 6vw;
+}
+.create-btn{
+   display: flex;
+   justify-content: center;
+    
+}
+.blog{
+    display: block;
+    font-size: large;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 2vw;
+    
+}
+.title{
+    width: 30vw;
+    margin-bottom: 1vw;
+   
+}
+.content{
+    width: 70vw;
+    height: 30vw;
+    text-align:start;
+    margin-bottom: 1vw;
+}
+.myblog{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 3vw;
+    padding-left: 1vw;
+    
+}
+
+.content-wrapper{
+    background-color: whitesmoke;
+    min-height: 100vh;
+    margin-left: 10vw;
+    margin-right: 10vw;
+           
+}
+#container{
+    margin-top: 1.5vw;
+}
+.btns{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin-top: 1vw;
+}
+
+@media (max-width: 750px){
+    .header{
+        padding-top:1vw;
+        background-color: bisque;
+        background-image: none;
+    }
+    .header a {
+        color: black;
+        font-size: 6vw;
+        text-decoration: none;
+        font-family:'Times New Roman', Times, serif;
+        background-image: none;
+    }
+    .blog{
+        display: block;
+        font-size: large;
+        font-family: Arial, Helvetica, sans-serif;
+        margin-left: 2vw;
+        
+    }
+    .title{
+        width: 40vw;
+        margin-bottom: 2vw;
+    }
+    .content{
+        width: 85vw;
+        height: 20vw;
+        text-align:start;
+        margin-bottom: 4vw;
+    }
+    #container{
+        margin-top: 4vw;
+    }
+}
+
+.blog-title{
+    font-size: 3vw;
+    list-style: none;
+}
+@media (max-width: 768px) {
+    .myblog {
+        font-size: 5vw;
+    }
+
+    .blog-title {
+        font-size: 4vw;
+        
+    }
+
+    .blog-content {
+        font-size: 3vw;
+    }
+
+    .btns button {
+        font-size: 2vw;
+    }
+}
